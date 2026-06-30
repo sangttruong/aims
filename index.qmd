@@ -57,6 +57,6 @@ To cite this book, please use the following entry:
   title     = {AI Measurement Science},
   author    = {Truong, Sang T. and Koyejo, Sanmi},
   year      = {2026},
-  url       = {https://aimslab.stanford.edu/textbook/}
+  url       = {https://aimsbook.org/}
 }
 ```

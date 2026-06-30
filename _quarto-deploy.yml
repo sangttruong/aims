@@ -1,2 +1,4 @@
+# Keep PDF downloads in the standalone book sidebar. Render PDF first, then
+# HTML with --no-clean so the download remains in the published artifact.
 book:
   downloads: [pdf]

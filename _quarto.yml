@@ -4,10 +4,11 @@ project:
   preview:
     port: 4200
 
-site-url: https://aimslab.stanford.edu/textbook
 
 resources:
   - "*.pdf"
+  - "resources/brand/*"
+  - "resources/fonts/*.txt"
   - "src/data/*.json"
   - "animations/**/*_narrated.mp4"
   
@@ -67,7 +68,6 @@ format:
         </script>
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-
   pdf:
     documentclass: scrreprt
     classoption: [numbers=noenddot,DIV=11]
@@ -118,22 +118,23 @@ execute:
 
 book:
   title: "AI Measurement Science"
+  site-url: https://aimsbook.org/
   author:
     - name: Sang T. Truong
+      url: https://ai.stanford.edu/~sttruong/
       orcid: 0000-0002-7551-4378
     - name: Sanmi Koyejo
+      url: https://cs.stanford.edu/~sanmi/
       orcid: 0000-0001-9039-3220
     
   date: last-modified
-  repo-url: https://github.com/aims-foundations/aims
+  repo-url: https://github.com/sangttruong/aims
   repo-actions: [source, issue]
-  navbar:
-    left:
-      - text: "AIMS Lab Home"
-        href: https://aimslab.stanford.edu/
+  downloads: [pdf]
   sidebar:
     style: "docked"
-    footer: license.qmd
+    footer: |
+      © 2025. This work is openly licensed via [CC BY NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
   # google-analytics:
   # cookie-consent: true
   chapters:
