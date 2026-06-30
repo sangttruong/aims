@@ -1,7 +1,7 @@
 # AI Measurement Science
 ### Sang Truong and Sanmi Koyejo
 
-This book is available online at: [aimslab.stanford.edu/textbook/](https://aimslab.stanford.edu/textbook/)
+This book is available online at: [aimsbook.org](https://aimsbook.org/)
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ Before building the book, ensure you have the following installed:
 ### 4. Clone the repository
 
 ```bash
-git clone https://github.com/aims-foundations/aims
+git clone https://github.com/sangttruong/aims
 cd aims
 ```
 
@@ -96,7 +96,7 @@ For the fastest edit loop, stay on `quarto preview` or `quarto render --to html`
 quarto render --to html
 ```
 
-This local HTML build omits the PDF download button on purpose, so the output is self-consistent even when you have not rendered the PDF.
+The standalone Quarto layout uses the original serif reading theme, a chapter sidebar with search, light and dark modes, and source/PDF tools. The PDF tool expects `AI-Measurement-Science.pdf` in `_book/`; render the PDF first or reuse the published PDF for an HTML-only preview.
 
 ### Build PDF
 
@@ -128,19 +128,11 @@ Then open http://127.0.0.1:8000/ in your browser.
 
 ## Publishing
 
-After completing edits and building:
+Push edits on a feature branch and open a pull request against `main`. After the
+pull request is merged, GitHub Actions renders and publishes the book to the
+`gh-pages` branch, which Vercel automatically deploys at <https://aimsbook.org/>.
 
-```bash
-git add .
-git commit -m "your commit message"
-git push origin main
-```
-
-The GitHub Actions workflow will automatically build and publish to GitHub Pages. The Stanford proxy serves that published book at `https://aimslab.stanford.edu/textbook/`.
-
-Regular pushes to `main` now publish the HTML site and reuse the most recently published PDF from `gh-pages` when one exists. This keeps the PDF download available without rebuilding the PDF on every content edit.
-
-When you want to refresh the published PDF, run the `Render and Publish` workflow manually from GitHub Actions with `rebuild_pdf=true`.
+Regular pushes to `main` rebuild and publish both the HTML site and PDF so they stay synchronized. A manual `Render and Publish` run can set `rebuild_pdf=false` to reuse the most recently published PDF from `gh-pages`.
 
 ## Server Deployment (Stanford)
 
@@ -162,7 +154,7 @@ Install `requirements.txt` separately only if you also need the local data-proce
 
 ```bash
 cd /lfs/skampere1/0/sttruong
-git clone https://github.com/aims-foundations/aims
+git clone https://github.com/sangttruong/aims
 ```
 
 ### Deploying updates
@@ -187,7 +179,7 @@ For faster HTML-only iteration on the server, skip the PDF step:
 AIMS_BUILD_PDF=0 ./deploy.sh
 ```
 
-That preserves the current default behavior while giving you a faster path when you do not need to refresh the PDF. If `_book/AI-Measurement-Science.pdf` is missing, the deploy-profile HTML build will omit the PDF download link.
+That preserves the current default behavior while giving you a faster path when you do not need to refresh the PDF. The sidebar download uses the PDF in the published artifact, so make sure that PDF already exists before using the HTML-only path.
 
 Alternatively, run the steps manually:
 
@@ -207,7 +199,7 @@ quarto render --to html --profile deploy --no-clean
 rsync -av --delete _book/ /afs/cs/group/aimslab/www/textbook/
 ```
 
-**Note:** Render PDF first and HTML second with `--profile deploy --no-clean`; otherwise the HTML build will not include the PDF download link, and omitting `--no-clean` will clear `_book/`.
+**Note:** Render PDF first and HTML second with `--profile deploy --no-clean`; `--no-clean` preserves the PDF artifact in `_book/` while Quarto adds the HTML site.
 
 ## Chapter Videos (Animations)
 
@@ -276,3 +268,20 @@ quarto render --to html
 ## License
 
 This book is licensed [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
+
+## Production website
+
+The public textbook is hosted at <https://aimsbook.org/>. The AIMS team's Vercel
+project `aimsbook` serves the generated `gh-pages` branch as a static website; it
+does not build or serve the Quarto source on `main`. Vercel uses the repository
+root, no framework or install/build command, and `.` as the output directory.
+
+The existing Render and Publish workflow still renders the PDF and HTML, then
+publishes `gh-pages`. That branch is the Vercel production branch, so successful
+book publications update the custom domain automatically. Main and other source
+branches are skipped by Vercel's ignored-build command. GitHub Pages remains
+available as a secondary host.
+
+The domain is registered and its DNS is managed through the AIMS team on Vercel.
+`www.aimsbook.org` redirects to `aimsbook.org`; existing AIMS `/textbook/` links
+redirect to the matching paths on the new domain.
