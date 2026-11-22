@@ -4,11 +4,11 @@ title-prefix: ""
 subtitle: "A textbook on the foundations and practice of AI evaluation"
 aims-title-actions:
   - label: View on GitHub
-    href: https://github.com/aims-foundations/aims
+    href: https://github.com/sangttruong/aims
     icon: github
     kind: secondary
   - label: Download PDF
-    href: https://aimslab.stanford.edu/textbook/AI-Measurement-Science.pdf
+    href: https://aimsbook.org/AI-Measurement-Science.pdf
     icon: file-pdf
     kind: primary
 ---
@@ -72,6 +72,6 @@ To cite this book, please use the following entry:
   title     = {AI Measurement Science},
   author    = {Truong, Sang T. and Koyejo, Sanmi},
   year      = {2026},
-  url       = {https://aimslab.stanford.edu/textbook/}
+  url       = {https://aimsbook.org/}
 }
 ```

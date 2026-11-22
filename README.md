@@ -1,7 +1,7 @@
 # AI Measurement Science
 ### Sang Truong and Sanmi Koyejo
 
-This book is available online at: [aimslab.stanford.edu/textbook/](https://aimslab.stanford.edu/textbook/)
+This book is available online at: [aimsbook.org](https://aimsbook.org/)
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ Before building the book, ensure you have the following installed:
 ### 4. Clone the repository
 
 ```bash
-git clone https://github.com/aims-foundations/aims
+git clone https://github.com/sangttruong/aims
 cd aims
 ```
 
@@ -160,7 +160,7 @@ Install `requirements.txt` separately only if you also need the local data-proce
 
 ```bash
 cd /lfs/skampere1/0/sttruong
-git clone https://github.com/aims-foundations/aims
+git clone https://github.com/sangttruong/aims
 ```
 
 ### Deploying updates
@@ -274,3 +274,20 @@ quarto render --to html
 ## License
 
 This book is licensed [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
+
+## Production website
+
+The public textbook is hosted at <https://aimsbook.org/>. The AIMS team's Vercel
+project `aimsbook` serves the generated `gh-pages` branch as a static website; it
+does not build or serve the Quarto source on `main`. Vercel uses the repository
+root, no framework or install/build command, and `.` as the output directory.
+
+The existing Render and Publish workflow still renders the PDF and HTML, then
+publishes `gh-pages`. That branch is the Vercel production branch, so successful
+book publications update the custom domain automatically. Main and other source
+branches are skipped by Vercel's ignored-build command. GitHub Pages remains
+available as a secondary host.
+
+The domain is registered and its DNS is managed through the AIMS team on Vercel.
+`www.aimsbook.org` redirects to `aimsbook.org`; existing AIMS `/textbook/` links
+redirect to the matching paths on the new domain.

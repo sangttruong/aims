@@ -4,7 +4,6 @@ project:
   preview:
     port: 4200
 
-site-url: https://aimslab.stanford.edu/textbook/
 
 resources:
   - "*.pdf"
@@ -122,6 +121,7 @@ execute:
 
 book:
   title: "AI Measurement Science"
+  site-url: https://aimsbook.org/
   favicon: resources/brand/aims-icon.svg
   search:
     location: navbar
@@ -138,7 +138,7 @@ book:
   navbar:
     logo: resources/brand/aims-lockup.svg
     logo-alt: "AIMS — AI Measurement Science at Stanford"
-    logo-href: https://aimslab.stanford.edu/
+    logo-href: https://aims.stanford.edu/
     background: "#ffffff"
     foreground: "#0d0f0f"
     collapse-below: lg
@@ -146,25 +146,23 @@ book:
     tools-collapse: true
     right:
       - text: "Research"
-        href: https://aimslab.stanford.edu/research
-      - text: "Data & Software"
-        href: https://aimslab.stanford.edu/measurement-db
+        href: https://aims.stanford.edu/research
       - text: "Education"
         menu:
+          - text: "CS321M"
+            href: https://web.stanford.edu/class/cs321m/
           - text: "Textbook"
             href: index.qmd
-          - text: "Course"
-            href: https://aimslab.stanford.edu/cs321m
       - text: "Community"
         menu:
-          - text: "Competition"
-            href: https://aimslab.stanford.edu/competition
-          - text: "Workshop"
-            href: https://aimslab.stanford.edu/workshop
           - text: "Seminars"
-            href: https://aimslab.stanford.edu/seminars
+            href: https://aims.stanford.edu/seminars
+          - text: "Tutorial"
+            href: https://aims.stanford.edu/tutorial
+          - text: "Workshop"
+            href: https://aims.stanford.edu/workshop
       - text: "Blog"
-        href: https://aimslab.stanford.edu/blog
+        href: https://aims.stanford.edu/blog
   sidebar:
     title: "Textbook"
     logo: false
