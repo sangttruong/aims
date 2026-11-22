@@ -35,16 +35,14 @@ filters:
 format:
   html:
     toc-expand: 2
-    title-block-banner: true
-    theme: [flatly, resources/scss/global.scss]
-    template-partials:
-      - resources/html/title-block.html
-      - resources/html/title-metadata.html
+    theme:
+      light: [flatly, resources/scss/global.scss]
+      dark: [darkly, resources/scss/global.scss]
     published-title: "Updated"
     code-fold: false
     code-overflow: scroll
     code-line-numbers: true
-    code-tools: false
+    code-tools: true
     code-copy: True
     mathjax: 
       macros:
@@ -69,7 +67,6 @@ format:
         };
         </script>
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-    include-after-body: resources/html/aims-footer.html
 
   pdf:
     documentclass: scrreprt
@@ -122,10 +119,6 @@ execute:
 book:
   title: "AI Measurement Science"
   site-url: https://aimsbook.org/
-  favicon: resources/brand/aims-icon.svg
-  search:
-    location: navbar
-    type: overlay
   author:
     - name: Sang T. Truong
       url: https://ai.stanford.edu/~sttruong/
@@ -135,41 +128,12 @@ book:
       orcid: 0000-0001-9039-3220
     
   date: last-modified
-  navbar:
-    logo: resources/brand/aims-lockup.svg
-    logo-alt: "AIMS — AI Measurement Science at Stanford"
-    logo-href: https://aims.stanford.edu/
-    background: "#ffffff"
-    foreground: "#0d0f0f"
-    collapse-below: lg
-    toggle-position: right
-    tools-collapse: true
-    right:
-      - text: "Research"
-        href: https://aims.stanford.edu/research
-      - text: "Education"
-        menu:
-          - text: "CS321M"
-            href: https://web.stanford.edu/class/cs321m/
-          - text: "Textbook"
-            href: index.qmd
-      - text: "Community"
-        menu:
-          - text: "Seminars"
-            href: https://aims.stanford.edu/seminars
-          - text: "Tutorial"
-            href: https://aims.stanford.edu/tutorial
-          - text: "Workshop"
-            href: https://aims.stanford.edu/workshop
-      - text: "Blog"
-        href: https://aims.stanford.edu/blog
+  repo-url: https://github.com/sangttruong/aims
+  repo-actions: [source, issue]
+  downloads: [pdf]
   sidebar:
-    title: "Textbook"
-    logo: false
-    logo-href: index.qmd
     style: "docked"
-    border: true
-    collapse-level: 1
+    footer: license.qmd
   # google-analytics:
   # cookie-consent: true
   chapters:
