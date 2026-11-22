@@ -96,7 +96,7 @@ For the fastest edit loop, stay on `quarto preview` or `quarto render --to html`
 quarto render --to html
 ```
 
-The preface includes GitHub and PDF actions beneath the author metadata. The PDF action points to the currently published copy, so it remains functional during an HTML-only local preview.
+The standalone Quarto layout uses the original serif reading theme, a chapter sidebar with search, light and dark modes, and source/PDF tools. The PDF tool expects `AI-Measurement-Science.pdf` in `_book/`; render the PDF first or reuse the published PDF for an HTML-only preview.
 
 ### Build PDF
 
@@ -128,15 +128,9 @@ Then open http://127.0.0.1:8000/ in your browser.
 
 ## Publishing
 
-After completing edits and building:
-
-```bash
-git add .
-git commit -m "your commit message"
-git push origin main
-```
-
-The GitHub Actions workflow will automatically build and publish to GitHub Pages. The Stanford proxy serves that published book at `https://aimslab.stanford.edu/textbook/`.
+Push edits on a feature branch and open a pull request against `main`. After the
+pull request is merged, GitHub Actions renders and publishes the book to the
+`gh-pages` branch, which Vercel automatically deploys at <https://aimsbook.org/>.
 
 Regular pushes to `main` rebuild and publish both the HTML site and PDF so they stay synchronized. A manual `Render and Publish` run can set `rebuild_pdf=false` to reuse the most recently published PDF from `gh-pages`.
 
@@ -185,7 +179,7 @@ For faster HTML-only iteration on the server, skip the PDF step:
 AIMS_BUILD_PDF=0 ./deploy.sh
 ```
 
-That preserves the current default behavior while giving you a faster path when you do not need to refresh the PDF. The preface link still targets the public PDF, so make sure the deployed PDF already exists before using the HTML-only path.
+That preserves the current default behavior while giving you a faster path when you do not need to refresh the PDF. The sidebar download uses the PDF in the published artifact, so make sure that PDF already exists before using the HTML-only path.
 
 Alternatively, run the steps manually:
 

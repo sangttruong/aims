@@ -1,4 +1,4 @@
-# Deployment uses the base HTML shell. The preface links directly to the
-# published PDF, so the global navigation does not need a download tool.
+# Keep PDF downloads in the standalone book sidebar. Render PDF first, then
+# HTML with --no-clean so the download remains in the published artifact.
 book:
-  downloads: []
+  downloads: [pdf]
