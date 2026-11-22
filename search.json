@@ -44,7 +44,7 @@
     "href": "index.html#citation",
     "title": "AI Measurement Science",
     "section": "Citation",
-    "text": "Citation\nTo cite this book, please use the following entry:\n@book{truongkoyejo2026aims,\n  title     = {AI Measurement Science},\n  author    = {Truong, Sang T. and Koyejo, Sanmi},\n  year      = {2026},\n  url       = {https://aimslab.stanford.edu/textbook/}\n}",
+    "text": "Citation\nTo cite this book, please use the following entry:\n@book{truongkoyejo2026aims,\n  title     = {AI Measurement Science},\n  author    = {Truong, Sang T. and Koyejo, Sanmi},\n  year      = {2026},\n  url       = {https://aimsbook.org/}\n}",
     "crumbs": [
       "Preface"
     ]
